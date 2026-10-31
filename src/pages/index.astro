@@ -1,4 +1,4 @@
----
+
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -9,42 +9,258 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<style>
+			:global(*) {
+				box-sizing: border-box;
+			}
+
+			:global(body) {
+				margin: 0;
+				font-family: Arial, Helvetica, sans-serif;
+				color: #202b3c;
+				background: #fff;
+			}
+
+			main {
+				width: 100%;
+			}
+
+			.hero {
+				padding: 110px 8%;
+				background: #f2f5f9;
+				display: grid;
+				grid-template-columns: 1.1fr 0.9fr;
+				gap: 50px;
+				align-items: center;
+			}
+
+			.eyebrow {
+				color: #315c91;
+				font-size: 13px;
+				font-weight: bold;
+				letter-spacing: 2px;
+				text-transform: uppercase;
+			}
+
+			h1 {
+				font-size: clamp(42px, 5vw, 68px);
+				line-height: 1.08;
+				letter-spacing: -2px;
+				margin: 20px 0;
+				color: #17263d;
+			}
+
+			.hero p {
+				color: #637083;
+				font-size: 18px;
+				line-height: 1.8;
+				max-width: 540px;
+			}
+
+			.button {
+				display: inline-block;
+				margin-top: 22px;
+				padding: 15px 25px;
+				background: #244b79;
+				color: white;
+				text-decoration: none;
+				border-radius: 5px;
+				font-weight: bold;
+			}
+
+			.hero-visual {
+				min-height: 350px;
+				border-radius: 12px;
+				background: linear-gradient(135deg, #244b79, #91a9c5);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: white;
+				text-align: center;
+				padding: 30px;
+			}
+
+			.hero-visual span {
+				font-size: 26px;
+				font-weight: bold;
+				max-width: 260px;
+				line-height: 1.4;
+			}
+
+			.section {
+				padding: 85px 8%;
+			}
+
+			.section-heading {
+				text-align: center;
+				max-width: 650px;
+				margin: 0 auto 45px;
+			}
+
+			h2 {
+				font-size: 36px;
+				color: #17263d;
+				margin: 12px 0;
+			}
+
+			.section-heading p,
+			.card p {
+				color: #6b7788;
+				line-height: 1.7;
+			}
+
+			.cards {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 25px;
+			}
+
+			.card {
+				padding: 30px;
+				border: 1px solid #e5eaf0;
+				border-radius: 8px;
+				background: white;
+			}
+
+			.card h3 {
+				color: #244b79;
+				font-size: 21px;
+			}
+
+			.about {
+				background: #f5f7fa;
+				text-align: center;
+			}
+
+			.about p {
+				max-width: 720px;
+				margin: 18px auto;
+				color: #637083;
+				line-height: 1.9;
+			}
+
+			.contact {
+				background: #17263d;
+				color: white;
+				text-align: center;
+			}
+
+			.contact h2 {
+				color: white;
+			}
+
+			.contact p {
+				color: #d0d9e5;
+				line-height: 1.8;
+			}
+
+			.contact .button {
+				background: white;
+				color: #17263d;
+			}
+
+			@media (max-width: 750px) {
+				.hero {
+					grid-template-columns: 1fr;
+					padding: 75px 7%;
+				}
+
+				.hero-visual {
+					min-height: 230px;
+				}
+
+				.cards {
+					grid-template-columns: 1fr;
+				}
+
+				.section {
+					padding: 65px 7%;
+				}
+			}
+		</style>
 	</head>
+
 	<body>
 		<Header />
+
 		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+			<section class="hero">
+				<div>
+					<span class="eyebrow">Welcome to our company</span>
+					<h1>Building better solutions for your business.</h1>
+					<p>
+						We help businesses move forward through reliable services,
+						thoughtful solutions and a commitment to quality.
+					</p>
+					<a class="button" href="#contact">Get in Touch</a>
+				</div>
+
+				<div class="hero-visual">
+					<span>Your Business. Your Vision. Our Commitment.</span>
+				</div>
+			</section>
+
+			<section class="section">
+				<div class="section-heading">
+					<span class="eyebrow">What We Do</span>
+					<h2>Our Services</h2>
+					<p>
+						Discover how our expertise and approach can help your
+						business achieve its goals.
+					</p>
+				</div>
+
+				<div class="cards">
+					<div class="card">
+						<h3>Our Services</h3>
+						<p>
+							Professional solutions designed around your
+							business requirements.
+						</p>
+					</div>
+
+					<div class="card">
+						<h3>Our Expertise</h3>
+						<p>
+							Knowledge, experience and attention to detail
+							in everything we do.
+						</p>
+					</div>
+
+					<div class="card">
+						<h3>Our Commitment</h3>
+						<p>
+							Building lasting relationships through quality
+							and dependable service.
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<section class="section about">
+				<span class="eyebrow">Who We Are</span>
+				<h2>About Our Company</h2>
+				<p>
+					We believe every successful business starts with a clear
+					vision and a strong commitment to its customers. Our goal
+					is to deliver meaningful solutions and build relationships
+					that last.
+				</p>
+				<a class="button" href="/about">Learn More</a>
+			</section>
+
+			<section class="section contact" id="contact">
+				<h2>Let's Work Together</h2>
+				<p>
+					Have a project or an idea? We'd love to hear from you.
+				</p>
+				<a class="button" href="mailto:hello@example.com">
+					Contact Us
+				</a>
+			</section>
 		</main>
+
 		<Footer />
 	</body>
 </html>
